@@ -14,9 +14,6 @@ Instruções para a adição no gestor:
     <li>https://webplay10.github.io/webplay.REPO-MATRIX/</li>
     
 </ul>
-
-                                      
-                                       
-
+                                                                       
 </p>
 
