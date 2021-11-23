@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="webplay.REPO-MATRIX" name="[COLOR white]WEB REPO[/COLOR][B][COLOR red]PLAY MATRIX[/COLOR][/B]" version="2.0-Matrix" provider-name="Webplay">
+<addon id="webplay.REPO-MATRIX" name="[COLOR white]WEB[/COLOR][B][COLOR red]PLAY REPO MATRIX[/COLOR][/B]" version="2.0-Matrix" provider-name="Webplay">
     <extension point="xbmc.addon.repository" name="webPlay-REPO-MATRIX">
         <dir>
             <info compressed="false">https://raw.githubusercontent.com/webplay10/webplay-REPO-MATRIX/master/zips/addons.xml</info>
