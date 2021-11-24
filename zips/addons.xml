@@ -43,8 +43,9 @@
         </assets>
     </extension>
 </addon>
-<addon id="plugin.video.WEBPLAY-MATRIX" name="[COLOR white]WEB[/COLOR][B][COLOR red]PLAY MATRIX[/COLOR][/B]" version="2.0
-+Matrix" provider-name="[COLOR white] by [/COLOR] [COLOR red][B]ADELVAN[/B][/COLOR]"> 
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.WEBPLAY-MATRIX" name="[COLOR white]WEB[/COLOR][B][COLOR red]PLAY MATRIX[/COLOR][/B]" version="2.0+Matrix" provider-name="[COLOR white] by [/COLOR] [COLOR red][B]ADELVAN[/B][/COLOR]"> 
 <requires>
     <import addon="xbmc.python" version="3.0.0"/>
     <import addon="script.module.requests"/>
@@ -70,7 +71,7 @@
         <disclaimer lang="en">O autor nao e de forma alguma afiliado a Kodi, a Team Kodi ou a XBMC Foundation. Este e um recurso sem fins lucrativos, organizado exclusivamente para fins educacionais e protegido pela doutrina de uso justo da Lei de Direitos Autorais, especificamente a secao 107, que promove a liberdade de expressao, permitindo o uso nao licenciado de obras protegidas por direitos autorais.</disclaimer>
         <website></website>
         <email>webplayads10@gmail.com</email>
-        <news>[COLOR red]l[/COLOR] Atualizacao v1.0 [COLOR red]l[/COLOR]
+        <news>[COLOR red]l[/COLOR] Atualizacao v2.0+Matrix [COLOR red]l[/COLOR]
 
 [COLOR red]l[/COLOR] Adicionado Menu de Suporte [COLOR red]l[/COLOR]
 [COLOR red]l[/COLOR] Em desenvovimento [COLOR red]l[/COLOR]
@@ -87,4 +88,5 @@
         </assets>
     </extension>
 </addon>
+
 </addons>
