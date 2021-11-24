@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="webplay.REPO-MATRIX" name="[COLOR white]WEB[/COLOR][B][COLOR red]PLAY REPO MATRIX[/COLOR][/B]" version="2.0-Matrix" provider-name="[COLOR white] by [/COLOR] [COLOR red][B]ADELVAN[/B][/COLOR]">
+<addon id="webplay.REPO-MATRIX" name="[COLOR white]WEB[/COLOR][B][COLOR red]PLAY REPO MATRIX[/COLOR][/B]" version="2.0+Matrix" provider-name="[COLOR white] by [/COLOR] [COLOR red][B]ADELVAN[/B][/COLOR]">
     <extension point="xbmc.addon.repository" name="webPlay.REPO-MATRIX">
         <dir>
             <info compressed="false">https://raw.githubusercontent.com/webplay10/webplay.REPO-MATRIX/master/zips/addons.xml</info>
@@ -8,7 +8,7 @@
         </dir>
     </extension>
     <extension point="xbmc.addon.metadata">
-        <summary>EQUIPE WEBPLAY</summary>
+        <summary>[COLOR white]WEB[/COLOR][B][COLOR red]PLAY[/COLOR][/B]</summary>
         <description>COLOR red]l[/COLOR] FILMES [COLOR red]l[/COLOR] SERIES [COLOR red]l[/COLOR] KIDS [COLOR red]l[/COLOR] ANIMES [COLOR red]l[/COLOR] LANCAMENTOS [COLOR red]l[/COLOR] HD [COLOR red]l[/COLOR] FHD [COLOR red]l[/COLOR]
 [COLOR red]l[/COLOR] O autor nao hospeda nem possui nenhum conteudo encontrado neste addon. O autor nao e responsavel pelo uso e pelo conteudo encontrado neste addon [COLOR red]l[/COLOR]
 
