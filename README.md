@@ -1,4 +1,4 @@
-# <a href="webplay.REPO-MATRIX-2.0-Matrix.zip">DOWNLOADDO REPOSITÓRIO</a>
+# <a href="webplay.REPO-MATRIX-2.0+Matrix.zip">DOWNLOADDO REPOSITÓRIO</a>
 
 Instruções para a adição no gestor:
 
