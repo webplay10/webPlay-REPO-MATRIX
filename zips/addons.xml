@@ -1,6 +1,6 @@
 <addons>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.WEBPLAY-MATRIX" name="[COLOR white]WEB[/COLOR][B][COLOR red]PLAY MATRIX[/COLOR][/B]" version="1.0.0" provider-name="[COLOR white] by [/COLOR] [COLOR red][B]ADELVAN[/B][/COLOR]"> 
+<addon id="plugin.video.WEBPLAY-MATRIX" name="[COLOR white]WEB[/COLOR][B][COLOR red]PLAY MATRIX[/COLOR][/B]" version="2.0-Matrix" provider-name="[COLOR white] by [/COLOR] [COLOR red][B]ADELVAN[/B][/COLOR]"> 
 <requires>
     <import addon="xbmc.python" version="3.0.0"/>
     <import addon="script.module.requests"/>
@@ -30,7 +30,7 @@
 
 [COLOR red]l[/COLOR] Adicionado Menu de Suporte [COLOR red]l[/COLOR]
 [COLOR red]l[/COLOR] Em desenvovimento [COLOR red]l[/COLOR]
-[COLOR red]l[/COLOR] S? Conteudos em FHD [COLOR red]l[/COLOR]
+[COLOR red]l[/COLOR] Só Conteudos em FHD [COLOR red]l[/COLOR]
 
 [B][COLOR red]l[/COLOR][COLOR white]WEB[/COLOR][COLOR red]PLAY[/COLOR][COLOR red]l[/COLOR][/B]</news>
         <platform>all</platform>
@@ -43,5 +43,6 @@
         </assets>
     </extension>
 </addon>
+
 
 </addons>
