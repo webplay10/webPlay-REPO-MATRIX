@@ -11,7 +11,7 @@ Instruções para a adição no gestor:
     <li>Ir para "Addons"</li>
     <li>Em Addons, instalar de um ficheiro zip. Quando perguntar pela localização, selecionar "webplay.REPO-MATRIX", e instalar <a href="webplay.REPO-MATRIX-2.0-Matrix.zip">webplay.REPO-MATRIX-2.0-Matrix.zip</a>.</li>
     -
-    <li>https://tinyurl.com/Webplay-REPO</li>
+    <li>https://webplay10.github.io/webplay.REPO-MATRIX</li>
     
 </ul>
                                                                        
