@@ -28,6 +28,9 @@
         <assets>
             <icon>icon.png</icon>
             <fanart>fanart.jpg</fanart>
+            <screenshot>resources/screenshots/1.jpg</screenshot>
+            <screenshot>resources/screenshots/2.jpg</screenshot>
+            <screenshot>resources/screenshots/3.jpg</screenshot>
         </assets>
     </extension>
 </addon>
