@@ -27,7 +27,7 @@ try:
 except:
     import simplejson as json
   
-nome_contador = "plugin.video.PRIMEVIDEO-MATRIX"
+nome_contador = "plugin.video.primevideo"
 link_contador = "https://whos.amung.us/pingjs/"    
 
 
@@ -2789,29 +2789,29 @@ def init_SKindex(msg):
    status_mensagem1 = addon.getSetting('mensagem1')
    if status_mensagem1 == 'true':
     dialog = xbmcgui.Dialog()
-    link = dialog.select("[B]BEM-VINDOS AO [COLOR azure]primevideo[/COLOR][/B]", [
-    "[B][COLOR azure] primevideo [/COLOR] [COLOR blue] FACEBOOK [/COLOR][/B]",
-    "[B][COLOR azure]primevideo [/COLOR] [COLOR pink] INSTAGRAM [/COLOR][/B]",
-    "[B][COLOR azure] prime [/COLOR] [COLOR lime] WHATSAPP [/COLOR][/B]",
+    link = dialog.select("[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B]", [
+    "[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B] [COLOR blue] FACEBOOK [/COLOR][/B]",
+    "[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B] [COLOR pink] INSTAGRAM [/COLOR][/B]",
+    "[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B] [COLOR lime] WHATSAPP [/COLOR][/B]",
     "[B][COLOR azure] ACESSAR [/COLOR] [COLOR orangered] AQUI [/COLOR][/B]"])    
       
     if link == 0:
      if xbmc . getCondVisibility ( 'system.platform.android' ) :
-         xbmc . executebuiltin ( 'StartAndroidActivity(,android.intent.action.VIEW,,%s)' % ( 'https://plugin.video.PRIMEVIDEO-MATRIX' ) )
+         xbmc . executebuiltin ( 'StartAndroidActivity(,android.intent.action.VIEW,,%s)' % ( 'https://plugin.video.primevideo' ) )
      else:
-        ost = webbrowser . open ( 'https://plugin.video.PRIMEVIDEO-MATRIX' )
+        ost = webbrowser . open ( 'https://plugin.video.primevideo' )
  
     if link == 1:
      if xbmc . getCondVisibility ( 'system.platform.android' ) :
-         xbmc . executebuiltin ( 'StartAndroidActivity(,android.intent.action.VIEW,,%s)' % ( 'https://plugin.video.PRIMEVIDEO-MATRIX' ) )
+         xbmc . executebuiltin ( 'StartAndroidActivity(,android.intent.action.VIEW,,%s)' % ( 'https://plugin.video.primevideo' ) )
      else:
         ost = webbrowser . open ( 'https://' )
     
     if link == 2:
      if xbmc . getCondVisibility ( 'system.platform.android' ) :
-         ost = xbmc . executebuiltin ( 'StartAndroidActivity(,android.intent.action.VIEW,,%s)' % ( 'https://plugin.video.PRIMEVIDEO-MATRIX' ) )
+         ost = xbmc . executebuiltin ( 'StartAndroidActivity(,android.intent.action.VIEW,,%s)' % ( 'https://plugin.video.primevideo' ) )
      else:
-        webbrowser . open ( 'https://plugin.video.PRIMEVIDEO-MATRIX' ) 
+        webbrowser . open ( 'https://plugin.video.primevideo' ) 
 
     if link == 4:
      xbmc.executebuiltin("XBMC.Container.Refresh('close()')")
