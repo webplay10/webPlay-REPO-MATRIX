@@ -27,7 +27,7 @@ try:
 except:
     import simplejson as json
   
-nome_contador = "plugin.video.PRIMEVIDEO-MATRIX"
+nome_contador = "plugin.video.primevideo"
 link_contador = "https://whos.amung.us/pingjs/"    
 
 
@@ -90,7 +90,7 @@ dialog_playlist = '[B][COLOR azure]Escolha uma opção:[/COLOR][/B]'
 useragent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'
 
 # Base - seu link principal
-url_origem = 'https://raw.githubusercontent.com/webplay10/WEBPLAY/master/Categorias'
+url_origem = 'https://raw.githubusercontent.com/webplay10/PRIMEVIDEO/main/Filmes%20utorrents'
 try:
     url_principal = base64.b64decode(url_origem).decode('utf-8')
 except:
@@ -2797,21 +2797,21 @@ def init_SKindex(msg):
       
     if link == 0:
      if xbmc . getCondVisibility ( 'system.platform.android' ) :
-         xbmc . executebuiltin ( 'StartAndroidActivity(,android.intent.action.VIEW,,%s)' % ( 'https://plugin.video.PRIMEVIDEO-MATRIX' ) )
+         xbmc . executebuiltin ( 'StartAndroidActivity(,android.intent.action.VIEW,,%s)' % ( 'https://plugin.video.primevideo' ) )
      else:
-        ost = webbrowser . open ( 'https://plugin.video.PRIMEVIDEO-MATRIX' )
+        ost = webbrowser . open ( 'https://plugin.video.primevideo' )
  
     if link == 1:
      if xbmc . getCondVisibility ( 'system.platform.android' ) :
-         xbmc . executebuiltin ( 'StartAndroidActivity(,android.intent.action.VIEW,,%s)' % ( 'https://plugin.video.PRIMEVIDEO-MATRIX' ) )
+         xbmc . executebuiltin ( 'StartAndroidActivity(,android.intent.action.VIEW,,%s)' % ( 'https://plugin.video.primevideo' ) )
      else:
         ost = webbrowser . open ( 'https://' )
     
     if link == 2:
      if xbmc . getCondVisibility ( 'system.platform.android' ) :
-         ost = xbmc . executebuiltin ( 'StartAndroidActivity(,android.intent.action.VIEW,,%s)' % ( 'https://plugin.video.PRIMEVIDEO-MATRIX' ) )
+         ost = xbmc . executebuiltin ( 'StartAndroidActivity(,android.intent.action.VIEW,,%s)' % ( 'https://plugin.video.primevideo' ) )
      else:
-        webbrowser . open ( 'https://plugin.video.PRIMEVIDEO-MATRIX' ) 
+        webbrowser . open ( 'https://plugin.video.primevideo' ) 
 
     if link == 4:
      xbmc.executebuiltin("XBMC.Container.Refresh('close()')")
