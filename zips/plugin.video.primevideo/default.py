@@ -90,7 +90,7 @@ dialog_playlist = '[B][COLOR azure]Escolha uma opção:[/COLOR][/B]'
 useragent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'
 
 # Base - seu link principal
-url_origem = 'https://raw.githubusercontent.com/webplay10/PRIMEVIDEO/main/Categorias'
+url_origem = 'https://raw.githubusercontent.com/webplay10/PRIMEVIDEO/master/Categorias'
 try:
     url_principal = base64.b64decode(url_origem).decode('utf-8')
 except:
