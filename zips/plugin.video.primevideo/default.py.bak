@@ -51,10 +51,7 @@ url_pesquisa = 'http://teste.com/get.php'
 menu_pesquisar = '[COLOR azure][B]PESQUISAR...[/B][/COLOR]'
 thumb_pesquisar = 'https://png.pngtree.com/png-vector/20190115/ourlarge/pngtree-vector-search-icon-png-image_320926.jpg'
 fanart_pesquisar = ''
-#### Descrição Pesquisa
-desc_pesquisa = 'Pesquise por filme'
-## MENU CONFIGURAÇÕES
-menu_configuracoes = "[B][COLOR azure]CONFIGURAÇÕES[/COLOR][/B]"
+#### D]CONFIGURAÇÕES[/COLOR][/B]"
 thumb_icon_config = 'https://archive.org/download/3-20211109-073854-0002/3_20211109_073854_0002.png'
 desc_configuracoes = "Configurações"
 ## FAVORITOS
@@ -90,7 +87,7 @@ dialog_playlist = '[B][COLOR azure]Escolha uma opção:[/COLOR][/B]'
 useragent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'
 
 # Base - seu link principal
-url_origem = 'https://raw.githubusercontent.com/webplay10/PRIMEVIDEO/main/Categorias'
+url_origem = 'https://raw.githubusercontent.com/webplay10/PRIMEVIDEO/master/Categorias'
 try:
     url_principal = base64.b64decode(url_origem).decode('utf-8')
 except:
@@ -2789,11 +2786,11 @@ def init_SKindex(msg):
    status_mensagem1 = addon.getSetting('mensagem1')
    if status_mensagem1 == 'true':
     dialog = xbmcgui.Dialog()
-    link = dialog.select("[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B]", [
+    link = dialog.select("[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B]", 
     "[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B] [COLOR blue] FACEBOOK [/COLOR][/B]",
     "[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B] [COLOR pink] INSTAGRAM [/COLOR][/B]",
     "[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B] [COLOR lime] WHATSAPP [/COLOR][/B]",
-    "[B][COLOR azure] ACESSAR [/COLOR] [COLOR orangered] AQUI [/COLOR][/B]"])    
+    "[B][COLOR azure] ACESSAR [/COLOR] [COLOR blue] AQUI [/COLOR][/B]"])
       
     if link == 0:
      if xbmc . getCondVisibility ( 'system.platform.android' ) :
