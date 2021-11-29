@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.PRIMEVIDEO-MATRIX" name="[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B]" version="2.0+Matrix" provider-name="[COLOR white] by [/COLOR] [COLOR blue][B]ADELVAN[/B][/COLOR]"> 
+<addon id="plugin.video.primevideo" name="[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B]" version="1.0" provider-name="[COLOR white] by [/COLOR] [COLOR blue][B]ADELVAN[/B][/COLOR]"> 
 <requires>
     <import addon="xbmc.python" version="3.0.0"/>
     <import addon="script.module.requests"/>
@@ -25,7 +25,7 @@
         <disclaimer lang="en">O autor nao e de forma alguma afiliado a Kodi, a Team Kodi ou a XBMC Foundation. Este e um recurso sem fins lucrativos, organizado exclusivamente para fins educacionais e protegido pela doutrina de uso justo da Lei de Direitos Autorais, especificamente a secao 107, que promove a liberdade de expressao, permitindo o uso nao licenciado de obras protegidas por direitos autorais.</disclaimer>
         <website></website>
         <email>webplayads10@gmail.com</email>
-        <news>[COLOR blue]l[/COLOR] Atualizacao v2.0+Matrix [COLOR blue]l[/COLOR]
+        <news>[COLOR blue]l[/COLOR] Atualizacao v1.0 [COLOR blue]l[/COLOR]
 
 [COLOR blue]l[/COLOR] Adicionado Menu de Suporte [COLOR blue]l[/COLOR]
 [COLOR blue]l[/COLOR] Em desenvovimento [COLOR blue]l[/COLOR]
