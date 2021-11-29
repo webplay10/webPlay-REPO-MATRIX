@@ -51,7 +51,10 @@ url_pesquisa = 'http://teste.com/get.php'
 menu_pesquisar = '[COLOR azure][B]PESQUISAR...[/B][/COLOR]'
 thumb_pesquisar = 'https://png.pngtree.com/png-vector/20190115/ourlarge/pngtree-vector-search-icon-png-image_320926.jpg'
 fanart_pesquisar = ''
-#### D]CONFIGURAÇÕES[/COLOR][/B]"
+#### Descrição Pesquisa
+desc_pesquisa = 'Pesquise por filme'
+## MENU CONFIGURAÇÕES
+menu_configuracoes = "[B][COLOR azure]CONFIGURAÇÕES[/COLOR][/B]"
 thumb_icon_config = 'https://archive.org/download/3-20211109-073854-0002/3_20211109_073854_0002.png'
 desc_configuracoes = "Configurações"
 ## FAVORITOS

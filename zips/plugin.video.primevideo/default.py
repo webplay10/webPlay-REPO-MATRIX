@@ -48,17 +48,17 @@ url_title = ''
 #url_b64_pesquisa = ''
 #url_pesquisa = base64.b64decode(url_b64_pesquisa).decode('utf-8')
 url_pesquisa = 'http://teste.com/get.php'
-menu_pesquisar = '[COLOR azure][B]PESQUISAR...[/B][/COLOR]'
+menu_pesquisar = '[COLOR blue][B]PESQUISAR...[/B][/COLOR]'
 thumb_pesquisar = 'https://png.pngtree.com/png-vector/20190115/ourlarge/pngtree-vector-search-icon-png-image_320926.jpg'
 fanart_pesquisar = ''
 #### Descrição Pesquisa
 desc_pesquisa = 'Pesquise por filme'
 ## MENU CONFIGURAÇÕES
-menu_configuracoes = "[B][COLOR azure]CONFIGURAÇÕES[/COLOR][/B]"
+menu_configuracoes = "[B][COLOR blue]CONFIGURAÇÕES[/COLOR][/B]"
 thumb_icon_config = 'https://archive.org/download/3-20211109-073854-0002/3_20211109_073854_0002.png'
 desc_configuracoes = "Configurações"
 ## FAVORITOS
-menu_favoritos = '[B][COLOR azure]|[/COLOR][COLOR azure]FAVORITOS[/COLOR][COLOR azure]|[/COLOR][/B]'
+menu_favoritos = '[B][COLOR blue]|[/COLOR][COLOR blue]FAVORITOS[/COLOR][COLOR blue]|[/COLOR][/B]'
 thumb_favoritos = 'https://archive.org/download/20211105-125517-0000/20211105_125517_0000.png'
 desc_favoritos = 'Adicione Itens aos Favoritos, pressionando OK do controle ou clicando o direito e selecionando Adicionar aos favoritos'
 
@@ -69,7 +69,7 @@ fanart_vip = 'https://i.imgur.com/'
 #### DESCRIÇÃO VIP ###########################################################
 vip_descricao = 'SOLICITE SEU TESTE VIP'
 #### DIALOGO VIP - SERVIDOR DESATIVADO - CLICK ###################################
-vip_dialogo = "[B][COLOR azure]CONFIGURE SEU ACESSO[/COLOR][/B]"
+vip_dialogo = "[B][COLOR blue]CONFIGURE SEU ACESSO[/COLOR][/B]"
 ##SERIVODR VIP
 url_server_vip1 = ''
 url_server_vip = ''
@@ -84,7 +84,7 @@ url_desc_doar = 'DESC DOAR'
 ## MULTLINK
 ## nome para $nome, padrão: lsname para $lsname
 playlist_command = 'nome'
-dialog_playlist = '[B][COLOR azure]Escolha uma opção:[/COLOR][/B]'
+dialog_playlist = '[B][COLOR blue]Escolha uma opção:[/COLOR][/B]'
 
 # user agent - Padrão: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
 useragent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'
@@ -151,11 +151,11 @@ if sys.argv[1] == 'SetPassword':
                 p_file = open(arquivo,'w')
                 p_file.write(ps2_b64)
                 p_file.close()
-                xbmcgui.Dialog().ok('[B][COLOR azure]AVISO[/COLOR][/B]','A Senha foi alterada com sucesso!')
+                xbmcgui.Dialog().ok('[B][COLOR blue]AVISO[/COLOR][/B]','A Senha foi alterada com sucesso!')
             else:
-                xbmcgui.Dialog().ok('[B][COLOR azure]AVISO[/COLOR][/B]','Não foi possivel alterar a senha!')
+                xbmcgui.Dialog().ok('[B][COLOR blue]AVISO[/COLOR][/B]','Não foi possivel alterar a senha!')
         else:
-            xbmcgui.Dialog().ok('[B][COLOR azure]AVISO[/COLOR][/B]','Senha invalida!, se não alterou utilize a senha padrão')
+            xbmcgui.Dialog().ok('[B][COLOR blue]AVISO[/COLOR][/B]','Senha invalida!, se não alterou utilize a senha padrão')
     else:
         p_file = open(arquivo,'r+')
         p_file_read = p_file.read()
@@ -175,11 +175,11 @@ if sys.argv[1] == 'SetPassword':
                 p_file = open(arquivo,'w')
                 p_file.write(ps2_b64)
                 p_file.close()
-                xbmcgui.Dialog().ok('[B][COLOR azure]AVISO[/COLOR][/B]','A Senha foi alterada com sucesso!')
+                xbmcgui.Dialog().ok('[B][COLOR blue]AVISO[/COLOR][/B]','A Senha foi alterada com sucesso!')
             else:
-                xbmcgui.Dialog().ok('[B][COLOR azure]AVISO[/COLOR][/B]','Não foi possivel alterar a senha!')
+                xbmcgui.Dialog().ok('[B][COLOR blue]AVISO[/COLOR][/B]','Não foi possivel alterar a senha!')
         else:
-            xbmcgui.Dialog().ok('[B][COLOR azure]AVISO[/COLOR][/B]','Senha invalida!, se não alterou utilize a senha padrão')
+            xbmcgui.Dialog().ok('[B][COLOR blue]AVISO[/COLOR][/B]','Senha invalida!, se não alterou utilize a senha padrão')
     exit()
 
 
@@ -1014,7 +1014,7 @@ def adult(name, url, iconimage, description, subtitle, regex):
                     li.setSubtitles([subtitle])
                 xbmc.Player().play(item=urlresolver, listitem=li)
         else:
-            xbmcgui.Dialog().ok('[B][COLOR azure]AVISO[/COLOR][/B]','Senha invalida!, se não alterou utilize a senha padrão')
+            xbmcgui.Dialog().ok('[B][COLOR blue]AVISO[/COLOR][/B]','Senha invalida!, se não alterou utilize a senha padrão')
     else:
         p_file = open(arquivo,'r+')
         p_file_read = p_file.read()
@@ -1039,7 +1039,7 @@ def adult(name, url, iconimage, description, subtitle, regex):
                     li.setSubtitles([subtitle])
                 xbmc.Player().play(item=urlresolver, listitem=li)
         else:
-            xbmcgui.Dialog().ok('[B][COLOR azure]AVISO[/COLOR][/B]','Senha invalida!, se não alterou utilize a senha padrão')
+            xbmcgui.Dialog().ok('[B][COLOR blue]AVISO[/COLOR][/B]','Senha invalida!, se não alterou utilize a senha padrão')
 
 def playlist(name, url, iconimage, description, subtitle, regex):
     playlist_command1 = playlist_command
@@ -1872,7 +1872,7 @@ def getRegex(url,regex='false'):
 
 
 def resolver(link,regex):
-    #xbmcgui.Dialog().ok('[B][COLOR azure]AVISO[/COLOR][/B]',str(regex))
+    #xbmcgui.Dialog().ok('[B][COLOR blue]AVISO[/COLOR][/B]',str(regex))
     if not 'false' in str(regex) and '$doregex' in link:
         link_decoded = getRegex(link,regex)
     else:    
@@ -2036,7 +2036,7 @@ def getFavorites():
                 xbmcplugin.setContent(addon_handle, 'movies')
                 xbmcplugin.endOfDirectory(addon_handle)
         else:
-            xbmcgui.Dialog().ok('[B][COLOR azure]AVISO[/COLOR][/B]','Nada Adicionado nos Favoritos')
+            xbmcgui.Dialog().ok('[B][COLOR blue]AVISO[/COLOR][/B]','Nada Adicionado nos Favoritos')
     except:
         pass
 
@@ -2565,7 +2565,7 @@ def Pesquisa():
     vq = get_search_string(heading="Digite algo para pesquisar")
     if ( not vq ): return False, 0
     title = urllib.quote_plus(vq)
-    addDir('[COLOR azure][B]PESQUISAR NOVAMENTE...[/B][/COLOR]','',7,thumb_pesquisar,fanart_pesquisar,desc_pesquisa,'','','','','','','','','','','','','','','','')
+    addDir('[COLOR blue][B]PESQUISAR NOVAMENTE...[/B][/COLOR]','',7,thumb_pesquisar,fanart_pesquisar,desc_pesquisa,'','','','','','','','','','','','','','','','')
     try:
         getData(url_pesquisa+'?pesquisar='+title, '')
     except:
@@ -2709,7 +2709,7 @@ def install_wizard(name,addon_id,url,directory,description):
             database.enable_addon('repository.elementum')
         #xbmc.executebuiltin("XBMC.Container.Refresh()")
         xbmc.executebuiltin("XBMC.Container.Update()")
-        xbmcgui.Dialog().ok('[B][COLOR azure]AVISO[/COLOR][/B]',''+name+' instalado com sucesso!\nObservação;\nÉ necessário Forçar Fechar o KODI para iniciar o Elementum no menu a seguir.\nFeche e abra o Kodi novamente!')
+        xbmcgui.Dialog().ok('[B][COLOR blue]AVISO[/COLOR][/B]',''+name+' instalado com sucesso!\nObservação;\nÉ necessário Forçar Fechar o KODI para iniciar o Elementum no menu a seguir.\nFeche e abra o Kodi novamente!')
         kill_kodi()
     except:
         notify('Erro ao baixar o complemento')
@@ -2718,7 +2718,7 @@ def install_wizard(name,addon_id,url,directory,description):
                 
 def kill_kodi():
     dialog = xbmcgui.Dialog()
-    link = dialog.select('[B][COLOR azure]FINALIZANDO INSTALAÇÃO DO ELEMENTUM[/COLOR][/B]', ['[COLOR azure]SIM POR FAVOR! [/COLOR][COLOR orange]|[/COLOR] [COLOR lime]FORÇAR FECHAR[/COLOR]','[COLOR azure]NÃO POR FAVOR! [/COLOR][COLOR orange]|[/COLOR] [COLOR red]NÃO CANCELAR[/COLOR]'])    
+    link = dialog.select('[B][COLOR blue]FINALIZANDO INSTALAÇÃO DO ELEMENTUM[/COLOR][/B]', ['[COLOR blue]SIM POR FAVOR! [/COLOR][COLOR orange]|[/COLOR] [COLOR lime]FORÇAR FECHAR[/COLOR]','[COLOR blue]NÃO POR FAVOR! [/COLOR][COLOR orange]|[/COLOR] [COLOR red]NÃO CANCELAR[/COLOR]'])    
             
     if link == 0:
      xbmcplugin.endOfDirectory(int(os._exit(1)))
@@ -2793,7 +2793,7 @@ def init_SKindex(msg):
     "[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B] [COLOR blue] FACEBOOK [/COLOR][/B]",
     "[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B] [COLOR pink] INSTAGRAM [/COLOR][/B]",
     "[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B] [COLOR lime] WHATSAPP [/COLOR][/B]",
-    "[B][COLOR azure] ACESSAR [/COLOR] [COLOR blue] AQUI [/COLOR][/B]"])
+    "[B][COLOR blue] ACESSAR [/COLOR] [COLOR blue] AQUI [/COLOR][/B]"])
       
     if link == 0:
      if xbmc . getCondVisibility ( 'system.platform.android' ) :
@@ -2943,7 +2943,7 @@ elif mode==1:
 #Configurações
 elif mode==4:   
     xbmcaddon.Addon().openSettings()
-    xbmcgui.Dialog().ok('[B][COLOR red]AVISO IMPORTANTE![/COLOR][/B]','[B][COLOR orange]|[/COLOR][/B][COLOR azure] POR FAVOR SAIR DO ADD-ON E ENTRE NOVAMENTE,[B] [COLOR orange]|[/COLOR][/B] PARA ATUALIZAR AS CONFIGURAÇÕES![B] [COLOR orange]|[/COLOR][/B]')
+    xbmcgui.Dialog().ok('[B][COLOR red]AVISO IMPORTANTE![/COLOR][/B]','[B][COLOR orange]|[/COLOR][/B][COLOR blue] POR FAVOR SAIR DO ADD-ON E ENTRE NOVAMENTE,[B] [COLOR orange]|[/COLOR][/B] PARA ATUALIZAR AS CONFIGURAÇÕES![B] [COLOR orange]|[/COLOR][/B]')
     xbmc.executebuiltin("XBMC.Container.Refresh()")
 
 #Link Vazio
@@ -2967,7 +2967,7 @@ elif mode==6:
 elif mode==9:
     xbmcgui.Dialog().ok(titulo_vip, vip_dialogo)
     xbmcaddon.Addon().openSettings()
-    xbmcgui.Dialog().ok('[B][COLOR azure]AVISO[/COLOR][/B]','FECHE O KODI E ABRA NOVAMENTE PARA ATUALIZAR AS CONFIGURAÇÕES')
+    xbmcgui.Dialog().ok('[B][COLOR blue]AVISO[/COLOR][/B]','FECHE O KODI E ABRA NOVAMENTE PARA ATUALIZAR AS CONFIGURAÇÕES')
     xbmc.executebuiltin("XBMC.Container.Refresh")
 
 elif mode==10:
