@@ -33,7 +33,7 @@ link_contador = "https://whos.amung.us/pingjs/"
 
 ##CONFIGURAÇÕES
 ####  TITULO DO MENU  #################################################################
-title_menu = "[COLOR blue]prime[/COLOR][B][COLOR blue]video[/COLOR][/B]"
+title_menu = "[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B]"
 ###  DESCRIÇÃO DO ADDON ###############################################################
 title_descricao = "O MELHOR DO CINEMA NO SEU KODI - 100% FHD"
 
@@ -63,7 +63,7 @@ thumb_favoritos = 'https://archive.org/download/20211105-125517-0000/20211105_12
 desc_favoritos = 'Adicione Itens aos Favoritos, pressionando OK do controle ou clicando o direito e selecionando Adicionar aos favoritos'
 
 #### MENU VIP ################################################################
-titulo_vip = "[COLOR blue]prime[/COLOR][B][COLOR blue]video[/COLOR][/B] - [COLOR orangeblue](VIP)[/COLOR][/B]"
+titulo_vip = "[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B] - [COLOR orangered](VIP)[/COLOR][/B]"
 thumbnail_vip = 'https://i.imgur.com/'
 fanart_vip = 'https://i.imgur.com/'
 #### DESCRIÇÃO VIP ###########################################################
@@ -110,7 +110,7 @@ if sys.argv[1] == 'limparFavoritos':
             os.remove(arquivo)
         except:
             pass
-    xbmcgui.Dialog().ok('Sucesso', '[B][COLOR blue]Favoritos limpo com sucesso![/COLOR][/B]')
+    xbmcgui.Dialog().ok('Sucesso', '[B][COLOR red]Favoritos limpo com sucesso![/COLOR][/B]')
     xbmc.sleep(2000)
     exit()
 
@@ -271,7 +271,7 @@ def getRequest(url, count):
                 data = getRequest(url, int(limit))
                 return data
             else:
-                notify('[COLOR blue]Erro ao utilizar o proxy ou servidor![/COLOR]')
+                notify('[COLOR red]Erro ao utilizar o proxy ou servidor![/COLOR]')
                 response = ''
                 return response
     else:
@@ -426,12 +426,12 @@ def getData(url,fanart):
                     date = ''
 
                 try:
-                    cblueits = re.compile('<cblueits>(.*?)</cblueits>',re.MULTILINE|re.DOTALL).findall(channel)[0]
-                    if cblueits == None:
+                    credits = re.compile('<credits>(.*?)</credits>',re.MULTILINE|re.DOTALL).findall(channel)[0]
+                    if credits == None:
                         #raise
-                        cblueits = ''
+                        credits = ''
                 except:
-                    cblueits = ''
+                    credits = ''
 
                 try:
                     year = re.compile('<year>(.*?)</year>',re.MULTILINE|re.DOTALL).findall(channel)[0]
@@ -466,12 +466,12 @@ def getData(url,fanart):
                     duration = ''
 
                 try:
-                    premieblue = re.compile('<premieblue>(.*?)</premieblue>',re.MULTILINE|re.DOTALL).findall(channel)[0]
-                    if premieblue == None:
+                    premiered = re.compile('<premiered>(.*?)</premiered>',re.MULTILINE|re.DOTALL).findall(channel)[0]
+                    if premiered == None:
                         #raise
-                        premieblue = ''
+                        premiered = ''
                 except:
-                    premieblue = ''
+                    premiered = ''
 
                 try:
                     studio = re.compile('<studio>(.*?)</studio>',re.MULTILINE|re.DOTALL).findall(channel)[0]
@@ -530,27 +530,27 @@ def getData(url,fanart):
                     votes = ''
 
                 try:
-                    aiblue = re.compile('<aiblue>(.*?)</aiblue>',re.MULTILINE|re.DOTALL).findall(channel)[0]
-                    if aiblue == None:
+                    aired = re.compile('<aired>(.*?)</aired>',re.MULTILINE|re.DOTALL).findall(channel)[0]
+                    if aired == None:
                         #raise
-                        aiblue = ''
+                        aired = ''
                 except:
-                    aiblue = ''
+                    aired = ''
 
                 try:
                     if linkedUrl=='':
-                        #addDir(name.encode('utf-8', 'ignore'),url.encode('utf-8'),2,thumbnail,fanArt,desc,genre,date,cblueits,True)
-                        #addDir(name.encode('utf-8', 'ignore'),url.encode('utf-8'),2,thumbnail,fanArt,desc,genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue)
-                        addDir(name.encode('utf-8', 'ignore'),'',1,thumbnail,fanArt,desc,genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue)
+                        #addDir(name.encode('utf-8', 'ignore'),url.encode('utf-8'),2,thumbnail,fanArt,desc,genre,date,credits,True)
+                        #addDir(name.encode('utf-8', 'ignore'),url.encode('utf-8'),2,thumbnail,fanArt,desc,genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired)
+                        addDir(name.encode('utf-8', 'ignore'),'',1,thumbnail,fanArt,desc,genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired)
                     else:
                         #print linkedUrl
                         #addDir(name.encode('utf-8'),linkedUrl.encode('utf-8'),1,thumbnail,fanArt,desc,genre,date,None,'source')
                         if adult == 'false' and re.search("ADULTOS",name,re.IGNORECASE) and name.find('(+18)') >=0:
                             pass
                         else:
-                            addDir(name.encode('utf-8', 'ignore'),linkedUrl,1,thumbnail,fanArt,desc,genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue)
+                            addDir(name.encode('utf-8', 'ignore'),linkedUrl,1,thumbnail,fanArt,desc,genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired)
                 except:
-                    notify('[COLOR blue]Erro ao Carregar os dados![/COLOR]')
+                    notify('[COLOR red]Erro ao Carregar os dados![/COLOR]')
         elif re.search("#EXTM3U",data) or re.search("#EXTINF",data):
             content = data.rstrip()
             match = re.compile(r'#EXTINF:(.+?),(.*?)[\n\r]+([^\r\n]+)').findall(content)
@@ -620,7 +620,7 @@ def getData(url,fanart):
                         pass
                     elif int(filtrar) == 6 and re.search("News",channel_name,re.IGNORECASE) or int(filtrar) == 6 and re.search("Sat",channel_name,re.IGNORECASE) or int(filtrar) == 6 and re.search("FM",channel_name,re.IGNORECASE):
                         pass
-                    elif int(filtrar) == 6 and not re.search("Globo",channel_name,re.IGNORECASE) and not re.search("RECORD",channel_name,re.IGNORECASE) and not re.search("blueeTV",channel_name,re.IGNORECASE) and not re.search("bluee Vida",channel_name,re.IGNORECASE) and not re.search("SBT",channel_name,re.IGNORECASE) and not re.search("TV Brasil",channel_name,re.IGNORECASE) and not re.search("TV Cultura",channel_name,re.IGNORECASE) and not re.search("TV Diario",channel_name,re.IGNORECASE) and not re.search("BAND",channel_name,re.IGNORECASE):
+                    elif int(filtrar) == 6 and not re.search("Globo",channel_name,re.IGNORECASE) and not re.search("RECORD",channel_name,re.IGNORECASE) and not re.search("RedeTV",channel_name,re.IGNORECASE) and not re.search("Rede Vida",channel_name,re.IGNORECASE) and not re.search("SBT",channel_name,re.IGNORECASE) and not re.search("TV Brasil",channel_name,re.IGNORECASE) and not re.search("TV Cultura",channel_name,re.IGNORECASE) and not re.search("TV Diario",channel_name,re.IGNORECASE) and not re.search("BAND",channel_name,re.IGNORECASE):
                         pass
                     #Reality show
                     elif int(filtrar) == 7 and not re.search("BBB",channel_name,re.IGNORECASE) and not re.search("Big Brother Brasil",channel_name,re.IGNORECASE) and not re.search("A Fazenda",channel_name,re.IGNORECASE):
@@ -630,22 +630,22 @@ def getData(url,fanart):
                         pass
                     elif int(filtrar) == 8 and not re.search("CNN",channel_name,re.IGNORECASE) and not re.search("NEWS",channel_name,re.IGNORECASE):
                         pass
-                    elif adult2 == 'false' and re.search("Adult",cat,re.IGNORECASE) or adult2 == 'false' and re.search("ADULT",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Blue Hustler",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("PlayBoy",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("bluelight",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Sextreme",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("SexyHot",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Venus",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("AST TV",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("ASTTV",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("AST.TV",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("BRAZZERS",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("CANDY",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("CENTOXCENTO",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("DORCEL",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("EROXX",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("PASSION",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("PENTHOUSE",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("PINK-O",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("PINK O",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("PRIVATE",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("RUSNOCH",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("SCT",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("SEXT6SENSO",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("SHALUN TV",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("VIVID blue",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Porn",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("XY Plus",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("XY Mix",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("XY Mad",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("XXL",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Desire",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Bizarre",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Sexy HOT",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Reality Kings",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Prive TV",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Hustler TV",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Extasy",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Evil Angel",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Erox",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("DUSK",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Brazzers",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Brasileirinhas",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Pink Erotic",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Passion",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Passie",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Meiden Van Holland Hard",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Sext & Senso",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Super One",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Vivid TV",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Hustler HD",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("SCT",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Sex Ation",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Hot TV",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Hot HD",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("MILF",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("ANAL",channel_name,re.IGNORECASE) and not re.search("CANAL",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("PUSSY",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("ROCCO",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("BABES",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("BABIE",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("XY Max",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("TUSHY",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("BLACKED",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("FAKE TAXI",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("XXX",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("18",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Porno",channel_name,re.IGNORECASE):
+                    elif adult2 == 'false' and re.search("Adult",cat,re.IGNORECASE) or adult2 == 'false' and re.search("ADULT",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Blue Hustler",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("PlayBoy",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Redlight",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Sextreme",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("SexyHot",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Venus",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("AST TV",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("ASTTV",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("AST.TV",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("BRAZZERS",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("CANDY",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("CENTOXCENTO",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("DORCEL",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("EROXX",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("PASSION",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("PENTHOUSE",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("PINK-O",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("PINK O",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("PRIVATE",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("RUSNOCH",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("SCT",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("SEXT6SENSO",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("SHALUN TV",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("VIVID RED",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Porn",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("XY Plus",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("XY Mix",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("XY Mad",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("XXL",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Desire",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Bizarre",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Sexy HOT",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Reality Kings",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Prive TV",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Hustler TV",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Extasy",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Evil Angel",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Erox",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("DUSK",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Brazzers",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Brasileirinhas",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Pink Erotic",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Passion",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Passie",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Meiden Van Holland Hard",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Sext & Senso",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Super One",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Vivid TV",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Hustler HD",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("SCT",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Sex Ation",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Hot TV",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Hot HD",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("MILF",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("ANAL",channel_name,re.IGNORECASE) and not re.search("CANAL",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("PUSSY",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("ROCCO",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("BABES",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("BABIE",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("XY Max",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("TUSHY",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("BLACKED",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("FAKE TAXI",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("XXX",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("18",channel_name,re.IGNORECASE) or adult2 == 'false' and re.search("Porno",channel_name,re.IGNORECASE):
                         pass
-                    elif re.search("Adult",cat,re.IGNORECASE) or re.search("ADULT",channel_name,re.IGNORECASE) or re.search("Blue Hustler",channel_name,re.IGNORECASE) or re.search("PlayBoy",channel_name,re.IGNORECASE) or re.search("bluelight",channel_name,re.IGNORECASE) or re.search("Sextreme",channel_name,re.IGNORECASE) or re.search("SexyHot",channel_name,re.IGNORECASE) or re.search("Venus",channel_name,re.IGNORECASE) or re.search("AST TV",channel_name,re.IGNORECASE) or re.search("ASTTV",channel_name,re.IGNORECASE) or re.search("AST.TV",channel_name,re.IGNORECASE) or re.search("BRAZZERS",channel_name,re.IGNORECASE) or re.search("CANDY",channel_name,re.IGNORECASE) or re.search("CENTOXCENTO",channel_name,re.IGNORECASE) or re.search("DORCEL",channel_name,re.IGNORECASE) or re.search("EROXX",channel_name,re.IGNORECASE) or re.search("PASSION",channel_name,re.IGNORECASE) or re.search("PENTHOUSE",channel_name,re.IGNORECASE) or re.search("PINK-O",channel_name,re.IGNORECASE) or re.search("PINK O",channel_name,re.IGNORECASE) or re.search("PRIVATE",channel_name,re.IGNORECASE) or re.search("RUSNOCH",channel_name,re.IGNORECASE) or re.search("SCT",channel_name,re.IGNORECASE) or re.search("SEXT6SENSO",channel_name,re.IGNORECASE) or re.search("SHALUN TV",channel_name,re.IGNORECASE) or re.search("VIVID blue",channel_name,re.IGNORECASE) or re.search("Porn",channel_name,re.IGNORECASE) or re.search("XY Plus",channel_name,re.IGNORECASE) or re.search("XY Mix",channel_name,re.IGNORECASE) or re.search("XY Mad",channel_name,re.IGNORECASE) or re.search("XXL",channel_name,re.IGNORECASE) or re.search("Desire",channel_name,re.IGNORECASE) or re.search("Bizarre",channel_name,re.IGNORECASE) or re.search("Sexy HOT",channel_name,re.IGNORECASE) or re.search("Reality Kings",channel_name,re.IGNORECASE) or re.search("Prive TV",channel_name,re.IGNORECASE) or re.search("Hustler TV",channel_name,re.IGNORECASE) or re.search("Extasy",channel_name,re.IGNORECASE) or re.search("Evil Angel",channel_name,re.IGNORECASE) or re.search("Erox",channel_name,re.IGNORECASE) or re.search("DUSK",channel_name,re.IGNORECASE) or re.search("Brazzers",channel_name,re.IGNORECASE) or re.search("Brasileirinhas",channel_name,re.IGNORECASE) or re.search("Pink Erotic",channel_name,re.IGNORECASE) or re.search("Passion",channel_name,re.IGNORECASE) or re.search("Passie",channel_name,re.IGNORECASE) or re.search("Meiden Van Holland Hard",channel_name,re.IGNORECASE) or re.search("Sext & Senso",channel_name,re.IGNORECASE) or re.search("Super One",channel_name,re.IGNORECASE) or re.search("Vivid TV",channel_name,re.IGNORECASE) or re.search("Hustler HD",channel_name,re.IGNORECASE) or re.search("SCT",channel_name,re.IGNORECASE) or re.search("Sex Ation",channel_name,re.IGNORECASE) or re.search("Hot TV",channel_name,re.IGNORECASE) or re.search("Hot HD",channel_name,re.IGNORECASE) or re.search("MILF",channel_name,re.IGNORECASE) or re.search("ANAL",channel_name,re.IGNORECASE) and not re.search("CANAL",channel_name,re.IGNORECASE) or re.search("PUSSY",channel_name,re.IGNORECASE) or re.search("ROCCO",channel_name,re.IGNORECASE) or re.search("BABES",channel_name,re.IGNORECASE) or re.search("BABIE",channel_name,re.IGNORECASE) or re.search("XY Max",channel_name,re.IGNORECASE) or re.search("TUSHY",channel_name,re.IGNORECASE) or re.search("FAKE TAXI",channel_name,re.IGNORECASE) or re.search("BLACKED",channel_name,re.IGNORECASE) or re.search("XXX",channel_name,re.IGNORECASE) or re.search("18",channel_name,re.IGNORECASE) or re.search("Porno",channel_name,re.IGNORECASE):
+                    elif re.search("Adult",cat,re.IGNORECASE) or re.search("ADULT",channel_name,re.IGNORECASE) or re.search("Blue Hustler",channel_name,re.IGNORECASE) or re.search("PlayBoy",channel_name,re.IGNORECASE) or re.search("Redlight",channel_name,re.IGNORECASE) or re.search("Sextreme",channel_name,re.IGNORECASE) or re.search("SexyHot",channel_name,re.IGNORECASE) or re.search("Venus",channel_name,re.IGNORECASE) or re.search("AST TV",channel_name,re.IGNORECASE) or re.search("ASTTV",channel_name,re.IGNORECASE) or re.search("AST.TV",channel_name,re.IGNORECASE) or re.search("BRAZZERS",channel_name,re.IGNORECASE) or re.search("CANDY",channel_name,re.IGNORECASE) or re.search("CENTOXCENTO",channel_name,re.IGNORECASE) or re.search("DORCEL",channel_name,re.IGNORECASE) or re.search("EROXX",channel_name,re.IGNORECASE) or re.search("PASSION",channel_name,re.IGNORECASE) or re.search("PENTHOUSE",channel_name,re.IGNORECASE) or re.search("PINK-O",channel_name,re.IGNORECASE) or re.search("PINK O",channel_name,re.IGNORECASE) or re.search("PRIVATE",channel_name,re.IGNORECASE) or re.search("RUSNOCH",channel_name,re.IGNORECASE) or re.search("SCT",channel_name,re.IGNORECASE) or re.search("SEXT6SENSO",channel_name,re.IGNORECASE) or re.search("SHALUN TV",channel_name,re.IGNORECASE) or re.search("VIVID RED",channel_name,re.IGNORECASE) or re.search("Porn",channel_name,re.IGNORECASE) or re.search("XY Plus",channel_name,re.IGNORECASE) or re.search("XY Mix",channel_name,re.IGNORECASE) or re.search("XY Mad",channel_name,re.IGNORECASE) or re.search("XXL",channel_name,re.IGNORECASE) or re.search("Desire",channel_name,re.IGNORECASE) or re.search("Bizarre",channel_name,re.IGNORECASE) or re.search("Sexy HOT",channel_name,re.IGNORECASE) or re.search("Reality Kings",channel_name,re.IGNORECASE) or re.search("Prive TV",channel_name,re.IGNORECASE) or re.search("Hustler TV",channel_name,re.IGNORECASE) or re.search("Extasy",channel_name,re.IGNORECASE) or re.search("Evil Angel",channel_name,re.IGNORECASE) or re.search("Erox",channel_name,re.IGNORECASE) or re.search("DUSK",channel_name,re.IGNORECASE) or re.search("Brazzers",channel_name,re.IGNORECASE) or re.search("Brasileirinhas",channel_name,re.IGNORECASE) or re.search("Pink Erotic",channel_name,re.IGNORECASE) or re.search("Passion",channel_name,re.IGNORECASE) or re.search("Passie",channel_name,re.IGNORECASE) or re.search("Meiden Van Holland Hard",channel_name,re.IGNORECASE) or re.search("Sext & Senso",channel_name,re.IGNORECASE) or re.search("Super One",channel_name,re.IGNORECASE) or re.search("Vivid TV",channel_name,re.IGNORECASE) or re.search("Hustler HD",channel_name,re.IGNORECASE) or re.search("SCT",channel_name,re.IGNORECASE) or re.search("Sex Ation",channel_name,re.IGNORECASE) or re.search("Hot TV",channel_name,re.IGNORECASE) or re.search("Hot HD",channel_name,re.IGNORECASE) or re.search("MILF",channel_name,re.IGNORECASE) or re.search("ANAL",channel_name,re.IGNORECASE) and not re.search("CANAL",channel_name,re.IGNORECASE) or re.search("PUSSY",channel_name,re.IGNORECASE) or re.search("ROCCO",channel_name,re.IGNORECASE) or re.search("BABES",channel_name,re.IGNORECASE) or re.search("BABIE",channel_name,re.IGNORECASE) or re.search("XY Max",channel_name,re.IGNORECASE) or re.search("TUSHY",channel_name,re.IGNORECASE) or re.search("FAKE TAXI",channel_name,re.IGNORECASE) or re.search("BLACKED",channel_name,re.IGNORECASE) or re.search("XXX",channel_name,re.IGNORECASE) or re.search("18",channel_name,re.IGNORECASE) or re.search("Porno",channel_name,re.IGNORECASE):
                         addDir2(channel_name.encode('utf-8', 'ignore'),stream_url,10,'',thumbnail,'','','','','','','','','','','','','','','','','','',False)
                     else:
                         #addLink(name1.encode('utf-8', 'ignore'),resolver_final.encode('utf-8'),'',cleaname,thumbnail,'',desc1)
                         addDir2(channel_name.encode('utf-8', 'ignore'),stream_url,18,'',thumbnail,'','','','','','','','','','','','','','','','','','',False)
                 except:
-                    #notify('[COLOR blue]Erro ao Carregar os dados![/COLOR]')
+                    #notify('[COLOR red]Erro ao Carregar os dados![/COLOR]')
                     pass
         else:
             #getItems(soup('item'),fanart)
             getItems(item,fanart)
     else:
         #parse_m3u(soup)
-        notify('[COLOR blue]Erro ao Carregar os dados![/COLOR]')
+        notify('[COLOR red]Erro ao Carregar os dados![/COLOR]')
     if '<SetContent>' in data:
         try:
             content=re.findall('<SetContent>(.*?)<',data)[0]
@@ -814,12 +814,12 @@ def getItems(items,fanart):
             date = ''
 
         try:
-            cblueits = re.compile('<cblueits>(.*?)</cblueits>',re.MULTILINE|re.DOTALL).findall(item)[0]
-            if cblueits == None:
+            credits = re.compile('<credits>(.*?)</credits>',re.MULTILINE|re.DOTALL).findall(item)[0]
+            if credits == None:
                 #raise
-                cblueits = ''
+                credits = ''
         except:
-            cblueits = ''
+            credits = ''
 
         try:
             year = re.compile('<year>(.*?)</year>',re.MULTILINE|re.DOTALL).findall(item)[0]
@@ -854,12 +854,12 @@ def getItems(items,fanart):
             duration = ''
 
         try:
-            premieblue = re.compile('<premieblue>(.*?)</premieblue>',re.MULTILINE|re.DOTALL).findall(item)[0]
-            if premieblue == None:
+            premiered = re.compile('<premiered>(.*?)</premiered>',re.MULTILINE|re.DOTALL).findall(item)[0]
+            if premiered == None:
                 #raise
-                premieblue = ''
+                premiered = ''
         except:
-            premieblue = ''
+            premiered = ''
 
         try:
             studio = re.compile('<studio>(.*?)</studio>',re.MULTILINE|re.DOTALL).findall(item)[0]
@@ -918,66 +918,66 @@ def getItems(items,fanart):
             votes = ''
 
         try:
-            aiblue = re.compile('<aiblue>(.*?)</aiblue>',re.MULTILINE|re.DOTALL).findall(item)[0]
-            if aiblue == None:
+            aired = re.compile('<aired>(.*?)</aired>',re.MULTILINE|re.DOTALL).findall(item)[0]
+            if aired == None:
                 #raise
-                aiblue = ''
+                aired = ''
         except:
-            aiblue = ''
+            aired = ''
 
 
         try:
             if name > '' and url == '' and not utube > '' and not utubelive > '' and not dm > '':
-                addLink(name.encode('utf-8', 'ignore'),'None','',thumbnail,fanArt,desc,genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue)
+                addLink(name.encode('utf-8', 'ignore'),'None','',thumbnail,fanArt,desc,genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired)
             elif name > '' and url == None and not utube > '' and not utubelive > '':
-                addLink(name.encode('utf-8', 'ignore'),'None','',thumbnail,fanArt,desc,genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue)
-            elif category == 'Adult' and url.find('blueecanais') >= 0 and url.find('m3u8') >= 0:
-                addDir2(name.encode('utf-8', 'ignore'),url,10,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue,False,regex)
+                addLink(name.encode('utf-8', 'ignore'),'None','',thumbnail,fanArt,desc,genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired)
+            elif category == 'Adult' and url.find('redecanais') >= 0 and url.find('m3u8') >= 0:
+                addDir2(name.encode('utf-8', 'ignore'),url,10,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired,False,regex)
             elif category == 'Adult' and url.find('canaismax') >= 0:
-                addDir2(name.encode('utf-8', 'ignore'),url,10,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue,False,regex)
+                addDir2(name.encode('utf-8', 'ignore'),url,10,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired,False,regex)
             elif url.find('canaismax') >= 0 and url.find('page') >= 0:
-                addDir2(name.encode('utf-8', 'ignore'),url,16,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue,False,regex)
+                addDir2(name.encode('utf-8', 'ignore'),url,16,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired,False,regex)
             elif url.find('ultracine_page') >= 0 and not len(url2) >1:
-                addDir2(name.encode('utf-8', 'ignore'),url,16,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue,False,regex)
+                addDir2(name.encode('utf-8', 'ignore'),url,16,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired,False,regex)
             elif url.find('streamtape.com') >= 0 and not len(url2) >1:
-                addDir2(name.encode('utf-8', 'ignore'),url,16,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue,False,regex)
+                addDir2(name.encode('utf-8', 'ignore'),url,16,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired,False,regex)
             elif url.find('netcine2_page') >= 0 and not len(url2) >1:
-                addDir2(name.encode('utf-8', 'ignore'),url,16,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue,False,regex)
+                addDir2(name.encode('utf-8', 'ignore'),url,16,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired,False,regex)
             elif url.find('series_canaismax') >= 0 and not len(url2) >1:
-                addDir2(name.encode('utf-8', 'ignore'),url,16,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue,False,regex)
+                addDir2(name.encode('utf-8', 'ignore'),url,16,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired,False,regex)
             elif url.find('filmes_canaismax') >= 0 and not len(url2) >1:
-                addDir2(name.encode('utf-8', 'ignore'),url,16,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue,False,regex)
+                addDir2(name.encode('utf-8', 'ignore'),url,16,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired,False,regex)
             elif utube > '' and len(utube) == 11:
                 link_youtube = 'plugin://plugin.video.youtube/play/?video_id='+utube
-                addLink(name.encode('utf-8', 'ignore'), link_youtube,subtitle,thumbnail,fanArt,desc,genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue)
+                addLink(name.encode('utf-8', 'ignore'), link_youtube,subtitle,thumbnail,fanArt,desc,genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired)
             elif utubelive > '' and len(utubelive) == 11:
                 link_live = 'https://www.youtube.com/watch?v='+utubelive
-                addDir2(name.encode('utf-8', 'ignore'),link_live,17,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue,False,regex)
+                addDir2(name.encode('utf-8', 'ignore'),link_live,17,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired,False,regex)
             elif dm > '' and len(dm) == 7:               
                 link_dm = 'plugin://plugin.video.dailymotion_com/?mode=playVideo&url='+dm
-                addLink(name.encode('utf-8', 'ignore'), link_dm,subtitle,thumbnail,fanArt,desc,genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue)                
+                addLink(name.encode('utf-8', 'ignore'), link_dm,subtitle,thumbnail,fanArt,desc,genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired)                
             elif len(externallink)>0:
-                addDir(name.encode('utf-8', 'ignore'),resolver(url,regex),1,thumbnail,fanArt,desc,genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue)
+                addDir(name.encode('utf-8', 'ignore'),resolver(url,regex),1,thumbnail,fanArt,desc,genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired)
             #Multilink
             elif len(url2) >1 and len(subtitle2) >1 and re.search(playlist_command,url,re.IGNORECASE):
                 name_resolve = name+'[COLOR aquamarine] ('+str(len(url2))+' itens)[/COLOR]'
-                addDir2(name_resolve.encode('utf-8', 'ignore'),str(url2).replace(',','||').replace('$'+playlist_command+'','#'+playlist_command+''),11,str(subtitle2).replace(',','||'),thumbnail,fanArt,desc.encode('utf-8'),genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue,False,regex)
+                addDir2(name_resolve.encode('utf-8', 'ignore'),str(url2).replace(',','||').replace('$'+playlist_command+'','#'+playlist_command+''),11,str(subtitle2).replace(',','||'),thumbnail,fanArt,desc.encode('utf-8'),genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired,False,regex)
             elif len(url2) >1 and re.search(playlist_command,url,re.IGNORECASE):
                 name_resolve = name+'[COLOR aquamarine] ('+str(len(url2))+' itens)[/COLOR]'
-                addDir2(name_resolve.encode('utf-8', 'ignore'),str(url2).replace(',','||').replace('$'+playlist_command+'','#'+playlist_command+''),11,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue,False,regex)
-                #addLink(name.encode('utf-8', 'ignore'),resolver(url),subtitle,thumbnail,fanArt,desc,genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue)
+                addDir2(name_resolve.encode('utf-8', 'ignore'),str(url2).replace(',','||').replace('$'+playlist_command+'','#'+playlist_command+''),11,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired,False,regex)
+                #addLink(name.encode('utf-8', 'ignore'),resolver(url),subtitle,thumbnail,fanArt,desc,genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired)
             elif category == 'Adult':
-                addDir2(name.encode('utf-8', 'ignore'),url,10,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue,False)
+                addDir2(name.encode('utf-8', 'ignore'),url,10,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired,False)
             else:
-                addDir2(name.encode('utf-8', 'ignore'),url,16,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue,False,regex)            
+                addDir2(name.encode('utf-8', 'ignore'),url,16,subtitle,thumbnail,fanArt,desc.encode('utf-8'),genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired,False,regex)            
             if not 'doregex' in url and not len(url2) >1 and 'youtube' in url:
                 resolv = resolver(url,regex)
             else:
                 resolv = ''
             if resolv.startswith('plugin://plugin.video.youtube/playlist') == True or resolv.startswith('plugin://plugin.video.youtube/channel') == True or resolv.startswith('plugin://plugin.video.youtube/user') == True or resolv.startswith('Plugin://plugin.video.youtube/playlist') == True:
-                addDir(name.encode('utf-8', 'ignore'),resolver(url,regex),6,thumbnail,fanArt,desc,genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue)            
+                addDir(name.encode('utf-8', 'ignore'),resolver(url,regex),6,thumbnail,fanArt,desc,genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired)            
         except:
-            notify('[COLOR blue]Erro ao Carregar os items![/COLOR]')
+            notify('[COLOR red]Erro ao Carregar os items![/COLOR]')
 
 
 def adult(name, url, iconimage, description, subtitle, regex):
@@ -1964,7 +1964,7 @@ def resolver(link,regex):
         resolved = ''
         return resolved
         #pass
-        #notify('[COLOR blue]Não foi possivel resolver um link![/COLOR]')
+        #notify('[COLOR red]Não foi possivel resolver um link![/COLOR]')
 
 
 
@@ -2078,7 +2078,7 @@ def rmFavorite(name):
     notify('Removido dos Favoritos do '+__addonname__)
     #xbmc.executebuiltin("XBMC.Container.Refresh")
 
-def addDir(name,url,mode,iconimage,fanart,description,genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue,folder=True):
+def addDir(name,url,mode,iconimage,fanart,description,genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired,folder=True):
     if mode == 1:
         if url > '':
             #u=sys.argv[0]+"?url="+urllib.quote_plus(base64.b64encode(url))+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&fanart="+urllib.quote_plus(fanart)
@@ -2108,7 +2108,7 @@ def addDir(name,url,mode,iconimage,fanart,description,genre,date,cblueits,year,d
     except:
         pass
     try:
-        li.setInfo('video', { 'cblueits': str(cblueits) })
+        li.setInfo('video', { 'credits': str(credits) })
     except:
         pass
     try:
@@ -2132,7 +2132,7 @@ def addDir(name,url,mode,iconimage,fanart,description,genre,date,cblueits,year,d
     except:
         pass
     try:
-        li.setInfo('video', { 'premieblue': str(premieblue) })
+        li.setInfo('video', { 'premiered': str(premiered) })
     except:
         pass
     try:
@@ -2168,7 +2168,7 @@ def addDir(name,url,mode,iconimage,fanart,description,genre,date,cblueits,year,d
     except:
         pass
     try:
-        li.setInfo('video', { 'aiblue': str(aiblue) })
+        li.setInfo('video', { 'aired': str(aired) })
     except:
         pass
 
@@ -2198,7 +2198,7 @@ def addDir(name,url,mode,iconimage,fanart,description,genre,date,cblueits,year,d
         pass
     xbmcplugin.addDirectoryItem(handle=addon_handle,url=u,listitem=li, isFolder=folder)
 
-def addDir2(name,url,mode,subtitle,iconimage,fanart,description,genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue,folder=True,regex=False):
+def addDir2(name,url,mode,subtitle,iconimage,fanart,description,genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired,folder=True,regex=False):
     if mode == 1:
         if url > '':
             u=sys.argv[0]+"?url="+urllib.quote_plus(base64.b16encode(base64.b64encode(url.encode('utf-8'))))+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&fanart="+urllib.quote_plus(fanart)
@@ -2230,7 +2230,7 @@ def addDir2(name,url,mode,subtitle,iconimage,fanart,description,genre,date,cblue
     except:
         pass
     try:
-        li.setInfo('video', { 'cblueits': str(cblueits) })
+        li.setInfo('video', { 'credits': str(credits) })
     except:
         pass
     try:
@@ -2254,7 +2254,7 @@ def addDir2(name,url,mode,subtitle,iconimage,fanart,description,genre,date,cblue
     except:
         pass
     try:
-        li.setInfo('video', { 'premieblue': str(premieblue) })
+        li.setInfo('video', { 'premiered': str(premiered) })
     except:
         pass
     try:
@@ -2290,7 +2290,7 @@ def addDir2(name,url,mode,subtitle,iconimage,fanart,description,genre,date,cblue
     except:
         pass
     try:
-        li.setInfo('video', { 'aiblue': str(aiblue) })
+        li.setInfo('video', { 'aired': str(aired) })
     except:
         pass
     if fanart > '':
@@ -2322,7 +2322,7 @@ def addDir2(name,url,mode,subtitle,iconimage,fanart,description,genre,date,cblue
         pass
     xbmcplugin.addDirectoryItem(handle=addon_handle,url=u,listitem=li, isFolder=folder)
 
-def addLink(name,url,subtitle,iconimage,fanart,description,genre,date,cblueits,year,director,writer,duration,premieblue,studio,rate,originaltitle,country,rating,userrating,votes,aiblue,folder=False):
+def addLink(name,url,subtitle,iconimage,fanart,description,genre,date,credits,year,director,writer,duration,premiered,studio,rate,originaltitle,country,rating,userrating,votes,aired,folder=False):
     if date == '':
         date = None
     else:
@@ -2357,7 +2357,7 @@ def addLink(name,url,subtitle,iconimage,fanart,description,genre,date,cblueits,y
     except:
         pass
     try:
-        li.setInfo('video', { 'cblueits': str(cblueits) })
+        li.setInfo('video', { 'credits': str(credits) })
     except:
         pass
     try:
@@ -2381,7 +2381,7 @@ def addLink(name,url,subtitle,iconimage,fanart,description,genre,date,cblueits,y
     except:
         pass
     try:
-        li.setInfo('video', { 'premieblue': str(premieblue) })
+        li.setInfo('video', { 'premiered': str(premiered) })
     except:
         pass
     try:
@@ -2417,7 +2417,7 @@ def addLink(name,url,subtitle,iconimage,fanart,description,genre,date,cblueits,y
     except:
         pass
     try:
-        li.setInfo('video', { 'aiblue': str(aiblue) })
+        li.setInfo('video', { 'aired': str(aired) })
     except:
         pass
 
@@ -2718,7 +2718,7 @@ def install_wizard(name,addon_id,url,directory,description):
                 
 def kill_kodi():
     dialog = xbmcgui.Dialog()
-    link = dialog.select('[B][COLOR blue]FINALIZANDO INSTALAÇÃO DO ELEMENTUM[/COLOR][/B]', ['[COLOR blue]SIM POR FAVOR! [/COLOR][COLOR orange]|[/COLOR] [COLOR lime]FORÇAR FECHAR[/COLOR]','[COLOR blue]NÃO POR FAVOR! [/COLOR][COLOR orange]|[/COLOR] [COLOR blue]NÃO CANCELAR[/COLOR]'])    
+    link = dialog.select('[B][COLOR blue]FINALIZANDO INSTALAÇÃO DO ELEMENTUM[/COLOR][/B]', ['[COLOR blue]SIM POR FAVOR! [/COLOR][COLOR orange]|[/COLOR] [COLOR lime]FORÇAR FECHAR[/COLOR]','[COLOR blue]NÃO POR FAVOR! [/COLOR][COLOR orange]|[/COLOR] [COLOR red]NÃO CANCELAR[/COLOR]'])    
             
     if link == 0:
      xbmcplugin.endOfDirectory(int(os._exit(1)))
@@ -2789,7 +2789,11 @@ def init_SKindex(msg):
    status_mensagem1 = addon.getSetting('mensagem1')
    if status_mensagem1 == 'true':
     dialog = xbmcgui.Dialog()
-    link = dialog.select('SEJAM [COLOR  blue] BEM - VINDOS AO [/COLOR][B][COLOR blue] PRIME[/COLOR][COLOR blue] VÍDEO![/COLOR][/B]', ['[B][COLOR blue] PRIME[/COLOR][COLOR blue] VÍDEO:[/COLOR][/B] MERCADO PAGO', '[B][COLOR blue] PRIME[/COLOR][COLOR blue]VÍDEO:[/COLOR][/B] PAGSEGURO', '[B][COLOR blue] PRIME[/COLOR][COLOR blue]VÍDEO:[/COLOR][/B] WHATSAPP', '[B][COLOR blue] PRIME[/COLOR][COLOR blue]VIDEO:[/COLOR][/B] FACEBOOK', '[B][COLOR blue]ACESSAR [/COLOR] [COLOR blue] AQUI[/COLOR] [/B]'])    
+    link = dialog.select("[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B]", 
+    "[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B] [COLOR blue] FACEBOOK [/COLOR][/B]",
+    "[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B] [COLOR pink] INSTAGRAM [/COLOR][/B]",
+    "[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B] [COLOR lime] WHATSAPP [/COLOR][/B]",
+    "[B][COLOR blue] ACESSAR [/COLOR] [COLOR blue] AQUI [/COLOR][/B]"])
       
     if link == 0:
      if xbmc . getCondVisibility ( 'system.platform.android' ) :
@@ -2939,7 +2943,7 @@ elif mode==1:
 #Configurações
 elif mode==4:   
     xbmcaddon.Addon().openSettings()
-    xbmcgui.Dialog().ok('[B][COLOR blue]AVISO IMPORTANTE![/COLOR][/B]','[B][COLOR orange]|[/COLOR][/B][COLOR blue] POR FAVOR SAIR DO ADD-ON E ENTRE NOVAMENTE,[B] [COLOR orange]|[/COLOR][/B] PARA ATUALIZAR AS CONFIGURAÇÕES![B] [COLOR orange]|[/COLOR][/B]')
+    xbmcgui.Dialog().ok('[B][COLOR red]AVISO IMPORTANTE![/COLOR][/B]','[B][COLOR orange]|[/COLOR][/B][COLOR blue] POR FAVOR SAIR DO ADD-ON E ENTRE NOVAMENTE,[B] [COLOR orange]|[/COLOR][/B] PARA ATUALIZAR AS CONFIGURAÇÕES![B] [COLOR orange]|[/COLOR][/B]')
     xbmc.executebuiltin("XBMC.Container.Refresh()")
 
 #Link Vazio
