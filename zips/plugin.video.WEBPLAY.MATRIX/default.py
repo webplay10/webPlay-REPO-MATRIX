@@ -2789,11 +2789,7 @@ def init_SKindex(msg):
    status_mensagem1 = addon.getSetting('mensagem1')
    if status_mensagem1 == 'true':
     dialog = xbmcgui.Dialog()
-    link = dialog.select("[B]BEM-VINDOS AO [COLOR azure]WEBPLAY[/COLOR][/B]", [
-    "[B][COLOR azure] WEBPLAY [/COLOR] [COLOR blue] FACEBOOK [/COLOR][/B]",
-    "[B][COLOR azure]WEBPLAY [/COLOR] [COLOR pink] INSTAGRAM [/COLOR][/B]",
-    "[B][COLOR azure]WEBPLAY [/COLOR] [COLOR lime] WHATSAPP [/COLOR][/B]",
-    "[B][COLOR azure] ACESSAR [/COLOR] [COLOR orangered] AQUI [/COLOR][/B]"])    
+    link = dialog.select('SEJAM [COLOR  white] BEM - VINDOS AO [/COLOR][B][COLOR white] WEB[/COLOR][COLOR red]PLAY![/COLOR][/B]', ['[B][COLOR white] WEB[/COLOR][COLOR red]PLAY:[/COLOR][/B] MERCADO PAGO', '[B][COLOR white] WEB[/COLOR][COLOR red]PLAY:[/COLOR][/B] PAGSEGURO', '[B][COLOR white] WEB[/COLOR][COLOR red]PLAY:[/COLOR][/B] WHATSAPP', '[B][COLOR white] WEB[/COLOR][COLOR red]PLAY:[/COLOR][/B] FACEBOOK', '[B][COLOR white]ACESSAR [/COLOR] [COLOR red] AQUI[/COLOR] [/B]'])    
       
     if link == 0:
      if xbmc . getCondVisibility ( 'system.platform.android' ) :
