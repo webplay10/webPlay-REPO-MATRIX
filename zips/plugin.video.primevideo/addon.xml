@@ -10,10 +10,10 @@
 	<provides>video</provides>
 </extension>
 
-<extension point="xbmc.addon.repository" name="[COLOR blue]prime[/COLOR][B][COLOR white]video REPO MATRIX[/COLOR][/B]">
-	<info compressed="false"></info>
-	<checksum></checksum>
-    <datadir zip="true"></datadir>
+<extension point="xbmc.addon.repository" name="[COLOR blue]prime[/COLOR][B][COLOR white]video REPO[/COLOR][/B]">
+		<info compressed="false">https://raw.githubusercontent.com/webplay10/primevideo.REPO/master/zips/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/webplay10/primevideo.REPO/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/webplay10/primevideo.REPO/master/zips/</datadir>
 </extension>
 
 <extension point="xbmc.addon.metadata">
