@@ -10,7 +10,7 @@
 	<provides>video</provides>
 </extension>
 
-<extension point="xbmc.addon.repository" name="[COLOR blue]prime[/COLOR][B][COLOR white]video REPO[/COLOR][/B]">
+<extension point="xbmc.addon.repository" name="[COLOR blue]prime[/COLOR][B][COLOR white]video REPO MATRIX[/COLOR][/B]">
 	<info compressed="false"></info>
 	<checksum></checksum>
     <datadir zip="true"></datadir>
