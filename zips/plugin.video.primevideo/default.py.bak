@@ -33,7 +33,7 @@ link_contador = "https://whos.amung.us/pingjs/"
 
 ##CONFIGURAÇÕES
 ####  TITULO DO MENU  #################################################################
-title_menu = "[COLOR blue]prime[/COLOR][B][COLOR blue]video[/COLOR][/B]"
+title_menu = "[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B]"
 ###  DESCRIÇÃO DO ADDON ###############################################################
 title_descricao = "O MELHOR DO CINEMA NO SEU KODI - 100% FHD"
 
@@ -63,7 +63,7 @@ thumb_favoritos = 'https://archive.org/download/20211105-125517-0000/20211105_12
 desc_favoritos = 'Adicione Itens aos Favoritos, pressionando OK do controle ou clicando o direito e selecionando Adicionar aos favoritos'
 
 #### MENU VIP ################################################################
-titulo_vip = "[COLOR blue]prime[/COLOR][B][COLOR blue]video[/COLOR][/B] - [COLOR orangeblue](VIP)[/COLOR][/B]"
+titulo_vip = "[COLOR blue]prime[/COLOR][B][COLOR white]video[/COLOR][/B] - [COLOR orangeblue](VIP)[/COLOR][/B]"
 thumbnail_vip = 'https://i.imgur.com/'
 fanart_vip = 'https://i.imgur.com/'
 #### DESCRIÇÃO VIP ###########################################################
@@ -2789,7 +2789,7 @@ def init_SKindex(msg):
    status_mensagem1 = addon.getSetting('mensagem1')
    if status_mensagem1 == 'true':
     dialog = xbmcgui.Dialog()
-    link = dialog.select('SEJAM [COLOR  blue] BEM - VINDOS AO [/COLOR][B][COLOR blue] PRIME[/COLOR][COLOR blue] VÍDEO![/COLOR][/B]', ['[B][COLOR blue] PRIME[/COLOR][COLOR blue] VÍDEO:[/COLOR][/B] MERCADO PAGO', '[B][COLOR blue] PRIME[/COLOR][COLOR blue]VÍDEO:[/COLOR][/B] PAGSEGURO', '[B][COLOR blue] PRIME[/COLOR][COLOR blue]VÍDEO:[/COLOR][/B] WHATSAPP', '[B][COLOR blue] PRIME[/COLOR][COLOR blue]VIDEO:[/COLOR][/B] FACEBOOK', '[B][COLOR blue]ACESSAR [/COLOR] [COLOR blue] AQUI[/COLOR] [/B]'])    
+    link = dialog.select('SEJAM [COLOR  azure] BEM - VINDOS AO [/COLOR][B][COLOR azure] WEB[/COLOR][COLOR blue]PLAY![/COLOR][/B]', ['[B][COLOR azure] WEB[/COLOR][COLOR blue]PLAY:[/COLOR][/B] MERCADO PAGO', '[B][COLOR azure] WEB[/COLOR][COLOR blue]PLAY:[/COLOR][/B] PAGSEGURO', '[B][COLOR azure] WEB[/COLOR][COLOR blue]PLAY:[/COLOR][/B] WHATSAPP', '[B][COLOR azure] WEB[/COLOR][COLOR blue]PLAY:[/COLOR][/B] FACEBOOK', '[B][COLOR azure]ACESSAR [/COLOR] [COLOR blue] AQUI[/COLOR] [/B]'])
       
     if link == 0:
      if xbmc . getCondVisibility ( 'system.platform.android' ) :

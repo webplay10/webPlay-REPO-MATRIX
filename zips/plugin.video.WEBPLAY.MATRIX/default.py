@@ -33,7 +33,7 @@ link_contador = "https://whos.amung.us/pingjs/"
 
 ##CONFIGURAÇÕES
 ####  TITULO DO MENU  #################################################################
-title_menu = "[COLOR white]WEB[/COLOR][B][COLOR red]PLAY MATRIX[/COLOR][/B]"
+title_menu = "[COLOR red]WEB[/COLOR][B][COLOR red]PLAY MATRIX[/COLOR][/B]"
 ###  DESCRIÇÃO DO ADDON ###############################################################
 title_descricao = "O MELHOR DO CINEMA NO SEU KODI - 100% FHD"
 
@@ -2789,7 +2789,7 @@ def init_SKindex(msg):
    status_mensagem1 = addon.getSetting('mensagem1')
    if status_mensagem1 == 'true':
     dialog = xbmcgui.Dialog()
-    link = dialog.select('SEJAM [COLOR  white] BEM - VINDOS AO [/COLOR][B][COLOR white] WEB[/COLOR][COLOR red]PLAY![/COLOR][/B]', ['[B][COLOR white] WEB[/COLOR][COLOR red]PLAY:[/COLOR][/B] MERCADO PAGO', '[B][COLOR white] WEB[/COLOR][COLOR red]PLAY:[/COLOR][/B] PAGSEGURO', '[B][COLOR white] WEB[/COLOR][COLOR red]PLAY:[/COLOR][/B] WHATSAPP', '[B][COLOR white] WEB[/COLOR][COLOR red]PLAY:[/COLOR][/B] FACEBOOK', '[B][COLOR white]ACESSAR [/COLOR] [COLOR red] AQUI[/COLOR] [/B]'])    
+    link = dialog.select('SEJAM [COLOR  red] BEM - VINDOS AO [/COLOR][B][COLOR red] WEB[/COLOR][COLOR red]PLAY![/COLOR][/B]', ['[B][COLOR red] WEB[/COLOR][COLOR red]PLAY:[/COLOR][/B] MERCADO PAGO', '[B][COLOR red] WEB[/COLOR][COLOR red]PLAY:[/COLOR][/B] PAGSEGURO', '[B][COLOR red] WEB[/COLOR][COLOR red]PLAY:[/COLOR][/B] WHATSAPP', '[B][COLOR red] WEB[/COLOR][COLOR red]PLAY:[/COLOR][/B] FACEBOOK', '[B][COLOR red]ACESSAR [/COLOR] [COLOR red] AQUI[/COLOR] [/B]'])    
       
     if link == 0:
      if xbmc . getCondVisibility ( 'system.platform.android' ) :
