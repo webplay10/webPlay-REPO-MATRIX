@@ -2817,7 +2817,7 @@ def init_SKindex(msg):
 def mensagem(msg):
    status_mensagem2 = addon.getSetting('mensagem2')
    if status_mensagem2 == 'true':     
-    xbmc.executebuiltin("Notification({0}, {1}, 10000, {2})".format(__addonname__,getRequest2('https://pastebin.com/raw/', ''), __icon__))     
+    xbmc.executebuiltin("Notification({0}, {1}, 10000, {2})".format(__addonname__,getRequest2('https://raw.githubusercontent.com/webplay10/WEBPLAY/master/Alarme', ''), __icon__))         
 
 
 def SKindex():
